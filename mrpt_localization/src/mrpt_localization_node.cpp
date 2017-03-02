@@ -133,9 +133,9 @@ void PFLocalizationNode::loop()
       publishMap();
     if (loop_count_ % param()->particlecloud_update_skip == 0)
       publishParticles();
-    if (param()->tf_broadcast) // tf always needed
+    if (param()->tf_broadcast)
       publishTF();
-    if (param()->pose_broadcast && state_ == RUN)
+    if (param()->pose_broadcast)
       publishPose();
 
     ros::spinOnce();
