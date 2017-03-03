@@ -527,7 +527,7 @@ void PFLocalizationNode::publishPose()
 
   // Fill in the header
   p.header.frame_id = tf::resolve(param()->tf_prefix, param()->global_frame_id);
-  if (loop_count_ < 10)
+  if (loop_count_ < 10 || status_ == IDLE)
     p.header.stamp = ros::Time::now();  // on first iterations timestamp differs a lot from ROS time
   else
     mrpt_bridge::convert(time_last_update_, p.header.stamp);
